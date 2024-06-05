@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANS CEĻŠ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Saira', sans-serif;
+        }
+        header {
+            position: relative; 
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 50px 0;
+            z-index: 999; 
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #708ca0;
+            z-index: -1; 
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 48px;
+            position: relative;
+            z-index: 1; 
+        }
+
+        main {
+            overflow: hidden;
+            font-size: 18px;
+        }
+        
+        h2 {
+            font-size: 28px;
+        }
+
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 5px;
+            background-image: url('punktafon.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        .circle {
+            background-color: lightgray;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 60%;
+        }
+        .circle span {
+            color: white;
+            z-index: 1;
+            font-weight: bold;
+            padding: 5px;
+            background-color: rgba(0, 0, 0, 0.65);
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; 
+            height: 100%; 
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .content-block {
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            justify-content: center; 
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .content-background{
+            position: relative;
+        }
+        .content-background:nth-child(odd) {
+            background-color: white;  
+        }
+        .content-background:nth-child(even) { 
+            background-color: #BFD1DE;   
+            border-radius: 40px;      
+        }
+        .content-block img {
+            width: 40%;
+            max-width: 900px;
+            object-fit: cover;
+            height: auto;
+            margin: 50px;
+            border-radius: 50px;
+        }
+        .content-text {
+            width: 50%;
+            padding: 50px;
+            padding-right: 100px;
+        }
+        .svg-containerR {
+            position: absolute;
+            top: 0px;
+            right: -125px;
+            width: 550px;
+            height: 550px;
+            z-index: 2; 
+            transform: rotate(10deg);
+        }
+        .svg-containerL {
+            position: absolute;
+            top: -25px;
+            left: -160px;
+            width: 550px;
+            height: 550px;
+            z-index: 2; 
+            transform: rotate(0deg);
+        }
+        .svg-container-circleR {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 450px;
+            height: 450px;
+            z-index: 4; 
+        }
+        .svg-container-circleL {
+            position: absolute;
+            top: -50px;
+            left: -200px;
+            width: 450px;
+            height: 450px;
+            z-index: 4; 
+        }
+        .svg-container-ellipseR {
+            position: absolute;
+            top: 0px;
+            right: -50px;
+            width: 220px;
+            height: 220px;
+            z-index: 3; 
+        }
+        .svg-container-ellipseL {
+            position: absolute;
+            top: -60px;
+            left: -30px;
+            width: -20px;
+            height: -20px;
+            z-index: 3; 
+        }
+        .svg-container-01R {
+            position: absolute;
+            top: 120px;
+            right: 100px;
+            width: 220px;
+            height: 220px;
+            z-index: 3; 
+        }
+        .svg-container-01L {
+            position: absolute;
+            top: -30px;
+            left: 250px;
+            width: -20px;
+            height: -20px;
+            z-index: 3; 
+        }
+        .svg-container-vector {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px; 
+            height: auto;
+            z-index: 3;
+        }
+        footer {
+            position: relative;
+            background-color: #BFD1DE; 
+            padding: 20px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .footer-content {
+            position: relative;
+        }
+
+        .footer-lineL {
+            position: absolute;
+            top: 0;
+            left: 10%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            z-index: 1; 
+        }
+
+        .footer-line1L {
+            position: absolute;
+            top: -30%;
+            left: 1%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 3; 
+        }
+        .footer-line2L {
+            position: absolute;
+            top: 10%;
+            left: 1%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 2; 
+        }
+        .footer-lineR {
+            position: absolute;
+            top: 0;
+            right: -5%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            z-index: 1; 
+        }
+
+        .footer-line1R {
+            position: absolute;
+            top: -60%;
+            right: -1%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 3; 
+        }
+        .footer-line2R {
+            position: absolute;
+            top: 30%;
+            right: -2%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: 2; 
+        }
+
+        .footer-content p {
+            position: relative;
+            z-index: 2; 
+        }
+
+        .point {
+            position: fixed;
+            bottom: 5%;
+            right: 0%;
+            z-index: 100;
+
+        }
+
+        .sun {
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            width: -20px;
+            height: -20px;
+            z-index: 5; 
+        }
+        .moon {
+            position: absolute;
+            top: 5px;
+            left: 55px;
+            width: -20px;
+            height: -20px;
+            z-index: 5; 
+        }
+
+        .dark-theme {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .dark-theme header::before {
+            background-color: #0b1627;
+        }
+
+        .dark-theme .content-background:nth-child(even) {
+            background-color: #0b1627;  
+        }
+        .dark-theme .content-background:nth-child(odd) {
+            background-color: #BFD1DE;  
+        }
+        .dark-theme footer {
+            background-color: #0b1627; 
+        }
+        
+        
+        .sun-dark,
+        .moon-light {
+            display: none;
+        }
+
+        body.dark-theme .sun-light,
+        body.dark-theme .moon-dark {
+            display: none;
+        }
+
+        body.dark-theme .sun-dark,
+        body.dark-theme .moon-light {
+            display: inline;
+        }
+
+
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 0;
+            }
+
+            header h1 {
+                font-size: 1.5em;
+                padding: 0 10px;
+            }
+
+            .circle-container {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+            }
+
+            .circle {
+                width: 60px;
+                height: 60px;
+                margin: 15px;
+            }
+            
+            .circle span {
+                font-size: 10px; 
+            }
+
+            .content-block {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .content-block img {
+                width: 80%;
+                height: auto;
+                border-radius: 50px;
+                object-fit: cover;
+                display: block;
+                margin-top: 20px;
+                margin-right: 90px;
+            }
+
+            .content-text {
+                width: 80%;
+                padding: 10px;
+                padding-right: 40px;
+                font-size: 16px;
+            }
+
+            .svg-containerR, .svg-containerL, .svg-container-circleR, .svg-container-circleL, .svg-container-ellipseR, .svg-container-ellipseL, .svg-container-01R, .svg-container-01L, .svg-container-vector {
+                display: none;
+            }
+            .footer-lineL img,
+            .footer-line1L img,
+            .footer-line2L img,
+            .footer-lineR img,
+            .footer-line2R img {
+                width: 60px; 
+                height: 60px; 
+            }
+            .footer-line2R {
+                top: 50%;
+                right: -20%;               
+            }
+            .footer-line1R {
+                top: -10%;
+                right: -20%;               
+            }
+            .footer-line1R img {  
+                width: 120px; 
+                height: 120px;               
+            }
+            .footer-lineR {
+                top: 5%;
+                right: -60%;               
+            }
+            .footer-lineR img {  
+                width: 40px; 
+                height: 40px;               
+            }
+            .footer-lineL {
+                top: 5%;
+                left: 12%;               
+            }
+            .footer-lineL img {  
+                width: 40px; 
+                height: 40px;               
+            }
+            .footer-line1L {
+                top: 20%;
+                left: 5%;               
+            }
+            .footer-line1L img {  
+                width: 120px; 
+                height: 120px;               
+            }
+            .footer-line2L {
+                top: 25%;
+                left: 0%;               
+            }
+            .footer-line2L img {  
+                width: 75px; 
+                height: 75px;               
+            }
+            .sun img, .moon img{
+                width: 20px; 
+                height: 20px;
+            }
+            .sun {
+                left: 5px;
+            }
+            .moon {
+                left: 30px;
+            }
+
+        }
+
+
+    </style>
+    
+
+</head>
+<body >
+
+<header id = "chapter0">
+    <div class="sun" onclick="switchTheme('light')">
+        <img class="sun-light" src="sun1.svg" alt="Sun" width="30" height="30">
+        <img class="sun-dark" src="sun.svg" alt="Sun" width="30" height="30">
+    </div>
+    <div class="moon" onclick="switchTheme('dark')">
+        <img class="moon-light" src="moon1.svg" alt="Moon" width="30" height="30">
+        <img class="moon-dark" src="moon.svg" alt="Moon" width="30" height="30">
+    </div>
+    
+    <div class="svg-containerR">
+        <img src="linijaR.svg" alt="Linija R" width="300" height="300">
+    </div>
+    <div class="svg-containerL">
+        <img src="linijaL.svg" alt="Linija L" width="300" height="300">
+    </div>
+    <div class="svg-container-circleR">
+        <img src="circleInCircle1.svg" alt="Aplis aplī" width="250" height="250">
+    </div>
+    <div class="svg-container-circleL">
+        <img src="circleInCircle1.svg" alt="Aplis aplī" width="370" height="370">
+    </div>
+    <div class="svg-container-ellipseR">
+        <img src="Ellipse.svg" alt="Ellipse" width="180" height="180">
+    </div>
+    <div class="svg-container-ellipseL">
+        <img src="Ellipse1.svg" alt="Ellipse" width="150" height="150">
+    </div>
+    <div class="svg-container-01R">
+        <img src="01.svg" alt="01" width="100" height="100">
+    </div>
+    <div class="svg-container-01L">
+        <img src="01.svg" alt="01" width="100" height="100">
+    </div>
+
+    <h1>Mans ceļš mācību procesā </br>Latvijas Universitātē</h1>
+</header>
+    
+<div class="point" onclick="scrollToChapter('chapter0')">
+    <img src="point.svg" alt="Point" width="70" height="70">
+</div>
+
+    
+
+<main>
+    
+    <div class="circle-container">
+        <div class="circle" onclick="scrollToChapter('chapter1')"><img src="es.jpg" alt="Iedvesma" onclick="scrollToChapter('chapter1')"><span>Iedvesma</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter2')"><img src="google1.jpg" alt="Iestāšanās"><span>Iestāšanās</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter3')"><img src="pirmieSoli1.jpg" alt="Pirmie soļi"><span>Pirmie soļi</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter4')"><img src="sesija1.jpg" alt="Sesija"><span>Sesija</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter5')"><img src="model1.jpg" alt="Prakse"><span>Prakse</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter6')"><img src="kval1.jpg" alt="Kvalifacijas darbs"><span>Kvalifacijas darbs</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter7')"><img src="diploms11.jpg" alt="Diploms"><span>Diploms</span></div>
+        <div class="circle" onclick="scrollToChapter('chapter8')"><img src="dators11.jpg" alt="Mūsdienas"><span>Mūsdienas</span></div>
+    </div>
+
+    <div id="chapter1" class="content-background">
+        <div class="content-block">
+            <img src="es.jpg" alt="Iedvesma">
+            <div class="content-text">
+                <h2>Iedvesma</h2>
+                <p>Viens no svarīgākajiem dzīves mirkļiem pienāk pēc skolas beigšanas, kad izlaidumā stāvi starp klasesbiedriem un saproti, ka no šī brīža katrs sāk savu dzīves nodaļu. Bet kā jebkurai galvenajai varonei, man bija jāizdara izvēle: iet vienu vai otru ceļu. Nācās skatīties bailēm sejā, jau biju nolēmusi sevi saistīt ar IT pasauli, jautājums kur iegūt šādas zināšanas. Acīmredzamākie varianti bija divas valsts augstskolas: LU un RTU. Protams, bija arī citi varianti. "Kas par TSI?" Tētis man jautāja. Atzīšos, šī ideja man nekad īsti nav patikusi. Budžeta vietas tur gandrīz nebija, un man nebija vēlmes paļauties uz savu vecāku dāsnumu. Bija vēl viens variants, līdzīga programma LLU, Jelgavā. Katru dienu ceļot uz citu pilsētu, kad manā dzimtajā pilsētā ir lieliskas iespējas? Nē nē un vēlreiz nē! Šādi lēmumi par pārcelšanos man nav domāti, tāpēc idejai par izglītības iegūšanu ārzemēs arī nebija iespējas pastāvēt. Atgriezīsimies pie mūsu favorītiem. Kura programma man iepatikās vislabāk? Es domāju, ka jūs jau zināt atbildi uz šo jautājumu, bet es nesteigšos, visu pēc kārtas.</p>
+            </div>
+        </div>
+        <div class="svg-container-vector">
+            <img src="Vector1.svg" alt="Vector">
+        </div>
+    </div>
+    <div id="chapter2" class="content-background">
+        <div class="content-block">
+            <img src="google1.jpg" alt="Iestāšanās">
+            <div class="content-text">
+                <h2>Iestāšanās</h2>
+                <p>Tātad pieņemšu, ka visi zina, ka portāls lavtija.lv sniedz lielisku iespēju padarīt uzņemšanu organizētāku un vienkāršāku. Topošais students var izvēlēties līdz pat 10 dažādām programmām dažādās augstskolās, sarindojot tās dilstošā secībā, sākot no vēlamākās līdz, tā teikt, pēdējai iespējai. Katrs kandidāts redz sevi pašreizējā vietā, kāmēr sistēmai tiek pievienoti arvien jauni pretendenti. Ja kandidāts vairs neiegūst pirmo vēlamo programmu, viņš automātiski tiek pārcelts uz nākamo viņa sarakstā iekļauto programmu. Arī topošais students pats var mainīt savu prioritāšu sarakstu. Tas notiek līdz noteiktajai dienai, pēc tam visi pretendenti tiek reģistrēti un uz laiku tiek piešķirti izvēlētai programmai. Tagad kandidātam ir izvēle: pieņemt saņemto vietu vai atteikties un izmēģināt savu iespēju otrajā kārtā. Man bija izvēle starp LU programmu un RTU programmu. Abām programmām pieteicās abi mani klasesbiedri, un kā meitenei man būtu nepieciešams drauga atbalsts, ar kuru es varētu pārdzīvot stresu, ko rada integrācija jaunā kolektīvā. Beigās, izvēle ir izdarīta. Izvēlējos ar sirdi, un tā man pateica, kur es atradīšu jaunus draugus, labākos pasniedzējus un vērtīgas zināšanas. Un tagad, 3 gadus vēlāk, es neko nenožēloju un rakstu šo tekstu, sēžot Latvijas Universitātē.</p>
+            </div>
+        </div>
+    </div>
+    <div id="chapter3" class="content-background">
+        <div class="content-block">
+            <img src="pirmieSoli1.jpg" alt="Pirmie soļi">
+            <div class="content-text">
+                <h2>Pirmie soļi</h2>
+                <p>Manus pirmos studenta studiju mēnešus aizēnoja Covid19 un ar to saistītie papildu drošības pasākumi, bet pēc tam vispār tālmācība.Taču šāds nodarbību formāts man jau bija pazīstams, tāpēc īpašas grūtības tas nesagādāja, īpaši tādā nozarē kā datorzinātnes. Atšķirība starp stundām skolā, kur bijā 20 cilvēki klasē, un augstskolā, kur, cik atceros, bija 340 no sākuma, bija jūtama. Man nācās daudz vairāk patstāvīgi pētīt materiālu un skatīties publiski pieejamo informāciju. Bet visgrūtākais bija noturēt koncentrēšanos visas pusotras stundas garumā. Teikšu godīgi, man neveicās labi, it īpaši pulksten 9 no rīta, kad acis pašas aizvērās, un klausīties lekciju bija nereāli. Tomēr, neskatoties uz to, priekšmeti bija un paliek interesanti, vingrinājumi un projekti dot man speciālistu pieredzi, un pats galvenais, es atradu brīnišķīgu draudzeni  un atbalstu no saviem kursabiedriem. Man ļoti patīk formāts strādāt komandā, kur visi viens otru papildina un piesedz savas vājās puses. Esmu pārliecināta, ka prasme sadarboties ļoti noderēs manā turpmākajā darba kolektīvā.</p>
+            </div>
+        </div>
+        <div class="svg-container-vector">
+            <img src="Vector1.svg" alt="Vector">
+        </div>
+    </div>
+    <div id="chapter4" class="content-background">
+        <div class="content-block">
+            <img src="sesija1.jpg" alt="Sesija">
+            <div class="content-text">
+                <h2>Sesija</h2>
+                <p>Jau būdama topošā studente, uzzināju, ka eksāmeni notiek ne tikai studiju beigās un pat ne reizi gadā, bet katru semestri. Un man šķiet, ka ir ļoti ērti koncentrēt spēkus vairākiem priekšmetiem, tos detalizēti izpētīt un pārbaudīt iegūtās zināšanas, kamēr tās ir svaigas un dziļas. Turklāt jebkuri testi liek studentiem vēl spēcīgāk iegaumēt informāciju, veicot daudzus atkārtojumus un gatavojoties. Atceros, ka manā pirmajā sesijā vismaz 3 eksāmeni bija muvārdu formā. Teikšu godīgi, šis formāts mani šausmīgi biedē. Baisais nav tas, ka ir nepieciešams labi mācīties un zināt materiālu. Man ir aukstas rokas no domas par mutiskām runām. Šajos brīžos smadzenes, šķiet, palēninās, vārdi pazūd, un zināšanas tiek samazinātas līdz valrieksta izmēram. Visspilgtākais mutiskais eksāmens bija datortīklos, un domāju, ka daudzi man piekritīs. Studentiem bija jāsēž mājās pie datora, ar ieslēgtu kameru un mikrofonu, ar aizvērtām acīm un paceltām rokām. Šī pieeja, protams, man palīdzēja apgūt visu materiālu, ko biju aptvērusi, taču tā arī iztērēja manas magnija rezerves. Starp citu, es nokārtoju šo priekšmetu, kamēr ne visiem maniem kolēģiem tas izdevās.</p>
+            </div>
+        </div>
+    </div>
+    <div id="chapter5" class="content-background">
+        <div class="content-block">
+            <img src="model1.jpg" alt="Prakse">
+            <div class="content-text">
+                <h2>Prakse</h2>
+                <p>Manas studijas LU turpinājās. Tika uzsākts ceturtais kurss, kad ir pienācis laiks meklēt uzņēmumu, kas dot studentiem prakses vietu. Sākumā man šķita, ka ir ļoti maz iespēju, un es varētu viegli palikt bez vietas, ja es nesteigšos. Taču strādāt es varēju sākt tuvāk maijam, jo lielāko semestra daļu turpinājās regulāras mācības. Es un mana draudzene nolēmām izveidot sarakstu ar visām vietām, kas kādreiz ir nodrošinājušas praksi vai šobrīd to nodrošina. Mums šķita pilnīgi iespējams iekļūt vienā uzņēmumā, un mēs sākām rakstīt vēstules. Mēs rediģējām savus CV, sagatavojām veidnes motivācijas vēstulei un sākām pieteikties, kur vien varējām. Protams, mums bija savi favorīti, taču ne visi atbildēja pat uz vēstuli. Aprīļa sākumā mums bija pirmā kopīga intervija jaunā uzņēmuma birojā. Viss noritēja labi, un gaidījām, kad mūs abas pieņems praksē. Taču realitāte izrādījās ne tik vienkārša. Man piedāvāja vietu, bet manai draudzenei atteica. Tā ir dzīve, un ir vērts saprast, ka tā notiek. Bet nedomājiet uztraukties par manas draudzenes likteni! Galu gala viņa bija atradusi brīnišķīgu vietu. Kas attiecas uz mani, tad arī esmu diezgan apmierināta ar savu likteni. Es nemācījos programmēšanu, pie kuras biju pieradusi, es izmēģināju kaut ko jaun: 3D modelēšana, animācija, to integrācija dizainā. Šis ir tikai viens no virzieniem, ko es tur izmēģināju, bet tas kļuva par spilgtāko un mīļāko. Tieši šī pieredze man parādīja, cik ļoti vēlos strādāt ar vizuālo pasauli: veidot 3D modeļus, spēles, jaunus elementus dizainā. Galu galā tāda ir labas prakses mērķis – atrast savu nišu.</p>
+            </div>
+        </div>
+        <div class="svg-container-vector">
+            <img src="Vector1.svg" alt="Vector">
+        </div>
+    </div>
+    <div id="chapter6" class="content-background">
+        <div class="content-block">
+            <img src="kval1.jpg" alt="Kvalifacijas darbs">
+            <div class="content-text">
+                <h2>Kvalifacijas darbs</h2>
+                <p>Tiklīdz prakse bija beigusies, man bija jāgatavojas jaunajam semestrim un jaunam studiju posmam. Visu septembri mani kursabiedri izvēlējās tēmu savam kursa darbam. Šeit bija iespējas: vai nu izveidot savu produktu, vai izcelt savu daļu lielāka mēroga projektā, parasti no prakses vietas. Izvēlējos pirmo variantu, gribēju dot brīvību radošumam un izmantot savas jaunās zināšanas. Jau pirms piektā semestra sākuma nolēmu, ka vēlos uztaisīt nelielu mobilo spēli. Sākumā es gribēju izveidot pilnvērtīgu spēli ar daudzām funkcijām un iespējām. Bet izstādes procesā laika ierobežojuma dēļ es nolēmu atteikties no lielākas daļas. Labāk izdarīt mazāk, bet labāk! Manuprāt, interesantākais bija 3D varoņu, šķēršļu un citu objektu veidošana. Es tos veidoju, izmantojot galvenokārt Blender programmu. Otrais interesantais rīks bija spēļu veidošanas platforma – Unity. Lai gan nācās daudz mācīties un skatīties video nodarbības, bija patīkami redzēt darba rezultātu, kas man iepatikās arvien vairāk. Noteikti zinu, ka šis darbs nebūs mans pedējais šajā nozarē. Ceru, ka šovasar gūšu iedvesmu izveidot jaunu spēli.</p>
+            </div>
+        </div>
+    </div>
+    <div id="chapter7" class="content-background">
+        <div class="content-block">
+            <img src="diploms11.jpg" alt="Diploms">
+            <div class="content-text">
+                <h2>Diploms</h2>
+                <p>Atgriežoties pie tēmas par kvalifikācijas darbu, gribu izcelt vienu detaļu. LU ir divas datorzinātnes līdzīgas programmas: pirmā līmeņa un bakalaura. Tās atšķiras tikai ar to, ka pirmā programma beidzas pēc 2,5 gadiem un pēc sekmīgas kvalifikācijas darba aizstāvēšanas izsniedz diplomu. Otrais šādu iespēju neparedz. Taču jebkuram datorzinātņu bakalaura studentam ir iespēja uz laiku pāriet uz pirmo programmu, nokārtot darbu, saņemt diplomu un ar visiem, kas vēlas, turpināt studijas. Tikmēr arī augstākās izglītības pirmā līmeņa studenti bez konkursa var doties tālāk mācīties. Šo iespēju es protams izmantoju un tāpēc, saņēmusi pozitīvu atzīmi aizstāvēšanā, ar nepacietību gaidīju izlaiduma datumu. Tas bija šīs ziemas brīnišķīgākais notikums. Visi ir skaisti, daudzi īpašos kostīmos. Fakultātes vadība katram studentam pasniedz apburošas sarkanas rozes un ilgi gaidīto diplomu. Tājā dienā bija daudz humora un fotogrāfiju, kas glāb īpašas sajūtas. Un visbeidzot studentu himna. Brīnišķīga atmosfēra, draugi un ģimene apkārt, un manā rokās pirmā augstākā izglītība. Kas varētu būt labāks?</p>
+            </div>
+        </div>
+        <div class="svg-container-vector">
+            <img src="Vector1.svg" alt="Vector">
+        </div>
+    </div>
+    <div id="chapter8" class="content-background">
+        <div class="content-block">
+            <img src="dators11.jpg" alt="Mūsdienas">
+            <div class="content-text">
+                <h2>Mūsdienas</h2>
+                <p>Gan jau ir pirmā izglītība, taču nevajadzētu pie tā apstāties. Mācības turpinās kā parasti. Jaunums ir iespēja izvēlēties kursus no C daļas. Tie nekādā veidā nav saistīti ar datoru tēmu, taču, godīgi sakot, dažreiz ir patīkami uzzināt kaut ko pilnīgi jaunu. Itāļu valoda, kuru es izvēlējos, ir tik interesants priekšmets. Cik jauki dažreiz ir klausīties lekciju mazā klasē, kurā ir tikai 15 citi studenti un pasniedzējs, kuram itāļu valoda ir dzimtā. Kopumā šis semestris man daudz iemācīja. Es visu laiku taisīju projektus, rādīju paveiktos uzdevumus. Citiem vārdiem sakot, bija daudz praktisku uzdevumu, un tas man tiešām patīk. Skatoties nākotnē, saprotu, ka jau tagad vēlos iegūt pieredzi un iesaistīties reālos projektos, tas ir, laiks meklēt darbu. Bet tas ir ļoti biedējoši. Ir bail netikt galā ar darba apjomu. Vēlāk, kad vasara beigusies, sāksies jauns semestris, un kā tad apvienot darbu, vai tam būs laiks un spēks. Man trūkst apņēmības, kāda piemīt daudziem maniem kursabiedriem. No otras puses, man joprojām ir laiks saviem projektiem un interesēm. Kā jau rakstīju, laiks sākt jaunu spēli!</p>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer-lineL">
+        <img src="01.svg" alt="01" width="80" height="80">
+    </div>
+    <div class="footer-line1L">
+        <img src="circleInCircle1.svg" alt="Aplis aplī" width="250" height="250">
+    </div>
+    <div class="footer-line2L">
+        <img src="Ellipse1.svg" alt="Ellipse" width="110" height="110">
+    </div>
+    <div class="footer-lineR">
+        <img src="01.svg" alt="01" width="80" height="80">
+    </div>
+    <div class="footer-line1R">
+        <img src="circleInCircle1.svg" alt="Aplis aplī" width="250" height="250">
+    </div>
+    <div class="footer-line2R">
+        <img src="Ellipse1.svg" alt="Ellipse" width="110" height="110">
+    </div>
+    <p>&copy; 2024 Mans ceļš. Anna Pļešikova.</p>
+</footer>
+
+<script>
+    function scrollToChapter(chapterName) {
+        var chapter = document.getElementById(chapterName);
+        if (chapter) {
+            chapter.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function switchTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+    }
+</script>
+</body>
+</html>
